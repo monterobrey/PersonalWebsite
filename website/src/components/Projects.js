@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 const Projects = () => {
   const projects = [
@@ -39,55 +40,73 @@ const Projects = () => {
   ];
 
   return (
-    <section className="section-container">
+    <motion.section
+      className="section-container"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+    >
       <Container>
-        <Row className="mb-5">
-          <Col>
-            <h2 className="section-title">Projects</h2>
-          </Col>
-        </Row>
-        
+        <motion.div
+          initial={{ y: -30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6 }}
+        >
+          <Row className="mb-5">
+            <Col>
+              <h2 className="section-title">Projects</h2>
+            </Col>
+          </Row>
+        </motion.div>
+
         <Row>
-          {projects.map(project => (
+          {projects.map((project, index) => (
             <Col lg={6} className="mb-4" key={project.id}>
-              <Card className="project-card border-0 shadow-sm h-100">
-                <Card.Img 
-                  variant="top" 
-                  src={project.image} 
-                  className="card-img-top" 
-                  alt={project.title}
-                />
-                <Card.Body>
-                  <Card.Title>{project.title}</Card.Title>
-                  <Card.Text>{project.description}</Card.Text>
-                  <div className="mb-3">
-                    {project.technologies.map((tech, index) => (
-                      <span 
-                        key={index} 
-                        className="badge bg-primary me-2 mb-2"
+              <motion.div
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                viewport={{ once: true }}
+              >
+                <Card className="project-card border-0 shadow-sm h-100">
+                  <Card.Img
+                    variant="top"
+                    src={project.image}
+                    className="card-img-top"
+                    alt={project.title}
+                  />
+                  <Card.Body>
+                    <Card.Title>{project.title}</Card.Title>
+                    <Card.Text>{project.description}</Card.Text>
+                    <div className="mb-3">
+                      {project.technologies.map((tech, index) => (
+                        <span
+                          key={index}
+                          className="badge bg-primary me-2 mb-2"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="d-flex">
+                      <Button
+                        variant="dark"
+                        href={project.github}
+                        target="_blank"
+                        className="me-2"
                       >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="d-flex">
-                    <Button 
-                      variant="dark" 
-                      href={project.github} 
-                      target="_blank" 
-                      className="me-2"
-                    >
-                      <FaGithub className="me-2" />
-                      Code
-                    </Button>
-                  </div>
-                </Card.Body>
-              </Card>
+                        <FaGithub className="me-2" />
+                        Code
+                      </Button>
+                    </div>
+                  </Card.Body>
+                </Card>
+              </motion.div>
             </Col>
           ))}
         </Row>
       </Container>
-    </section>
+    </motion.section>
   );
 };
 

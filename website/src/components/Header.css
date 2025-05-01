@@ -1,0 +1,26 @@
+.navbar {
+    border-bottom: 2px solid #333; 
+  }
+  
+  .nav-link-hover {
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease-in-out; 
+  }
+  
+  .nav-link-hover:hover {
+    color: #2350ca !important; 
+    transform: scale(1.1); 
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .navbar-brand:hover {
+    color: #1277f3; 
+  }
+  
