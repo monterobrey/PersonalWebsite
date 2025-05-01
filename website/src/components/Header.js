@@ -1,18 +1,27 @@
-// components/Header.js
 import React from 'react';
-import Navigation from './Navigation';
+import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-function Header() {
+const Header = () => {
   return (
-    <header className="bg-dark text-white">
-      <div className="container py-3">
-        <div className="d-flex justify-content-between align-items-center">
-          <h1 className="h3 mb-0">Your Name</h1>
-          <Navigation />
-        </div>
-      </div>
+    <header>
+      <Navbar bg="dark" variant="dark" expand="lg" sticky="top" style={{ paddingTop: '0.8rem', paddingBottom: '0.8rem' }}>
+        <Container>
+          <Navbar.Brand as={Link} to="/">My Personal Website</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ms-auto">
+              <Nav.Link as={Link} to="/">Home</Nav.Link>
+              <Nav.Link as={Link} to="/about">About</Nav.Link>
+              <Nav.Link as={Link} to="/education">Education</Nav.Link>
+              <Nav.Link as={Link} to="/projects">Projects</Nav.Link>
+              <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
     </header>
   );
-}
+};
 
 export default Header;

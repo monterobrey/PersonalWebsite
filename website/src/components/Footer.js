@@ -1,16 +1,18 @@
-// components/Footer.js
 import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 
-function Footer() {
-  const year = new Date().getFullYear();
-  
+const Footer = () => {
   return (
-    <footer className="bg-dark text-white py-4 mt-auto">
-      <div className="container text-center">
-        <p className="mb-0">© {year} Your Name. All rights reserved.</p>
-      </div>
+    <footer className="bg-dark text-white py-2">
+      <Container>
+        <Row className="text-center">
+          <Col>
+            <span>&copy; {new Date().getFullYear()} Obrey Monter. All rights reserved.</span>
+          </Col>
+        </Row>
+      </Container>
     </footer>
   );
-}
+};
 
 export default Footer;

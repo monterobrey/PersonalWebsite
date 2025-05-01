@@ -1,46 +1,97 @@
-/* App.css */
 body {
+  font-family: 'Roboto', sans-serif;
   background-color: #f8f9fa;
 }
 
-.min-vh-100 {
-  min-height: 100vh;
+.section-container {
+  padding: 40px 0;
 }
 
-.flex-grow-1 {
-  flex-grow: 1;
+.section-title {
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
 }
 
-/* Add a bit of animation on hover for project cards */
-.card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.section-title:after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 3px;
+  background-color: #007bff;
+  bottom: -10px;
+  left: 0;
 }
 
-.card:hover {
+.hero-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 60px 0;
+}
+
+.profile-picture {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.project-card {
+  transition: transform 0.3s ease;
+  margin-bottom: 20px;
+  height: 100%;
+}
+
+.project-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
 }
 
-/* Make sure links are consistent */
-a {
-  color: #0d6efd;
-  text-decoration: none;
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
 }
 
-a:hover {
-  color: #0a58ca;
-  text-decoration: underline;
+.education-item {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 30px;
 }
 
-/* Add spacing between sections */
-section {
-  margin-bottom: 2rem;
+.education-item:before {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #007bff;
+  left: 0;
+  top: 5px;
 }
+
+.contact-icon {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #007bff;
+}
+
+/* Removing footer icon styles as they're no longer needed */
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
+  .section-container {
+    padding: 20px 0;
+  }
+  
+  .hero-section {
+    padding: 40px 0;
+  }
+  
+  .profile-picture {
+    width: 120px;
+    height: 120px;
   }
 }
